@@ -11,6 +11,9 @@
 **************************************************************************/
 void Init_UserRam()
 {
+	B_PPGDP_Dis = C_PPGDP_ForceOff; // 上电按总开关禁止抖频
+	B_PPGDP_Can = 0;               // 取消强制开启抖频
+
 	#if _MODE_COMM_NO_
 	B_Comm_No = 1;		//无通信模式	 
 	#elif _MODE_COMM_HAVE_

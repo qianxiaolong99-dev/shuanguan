@@ -248,7 +248,7 @@ unsigned long REL_DealReceData(unsigned char id, unsigned int value)
 				ClrBit(value,9);		//连续低功率强制关闭
 				B_Bak_LxLow = 0;
 			}
-			B_PPGDP_Can = 1;		 	//抖频使能
+			B_PPGDP_Can = !C_PPGDP_ForceOff; // 总开关关闭时屏蔽调试使能
 		}
 		else
 		{
@@ -266,7 +266,7 @@ unsigned long REL_DealReceData(unsigned char id, unsigned int value)
 		}		
 		else
 		{
-			B_PPGDP_Dis = 0;			
+			B_PPGDP_Dis = C_PPGDP_ForceOff; // 总开关关闭时不允许调试恢复抖频
 		}	
  
 		if(TestOne(value,9))

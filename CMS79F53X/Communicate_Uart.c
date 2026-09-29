@@ -393,7 +393,7 @@ void Deal_CommData()
 		}
 		else
 		{
-			B_PPGDP_Dis = 0;  			 
+			B_PPGDP_Dis = C_PPGDP_ForceOff; // 总开关关闭时不允许通信恢复抖频
 		}	
 		//-----------------------------------------------------------------			
 		if(TestOne(Flag2_Work,0))
@@ -416,7 +416,7 @@ void Deal_CommData()
 		
 		if(TestOne(Flag2_Work,7))  
 		{
-			B_PPGDP_Can = 1;  				//PPG抖频强制使能
+			B_PPGDP_Can = !C_PPGDP_ForceOff; // 总开关关闭时屏蔽强制使能
 		}
 		else
 		{
